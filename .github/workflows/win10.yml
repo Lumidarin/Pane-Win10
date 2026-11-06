@@ -27,6 +27,11 @@ jobs:
         run: |
           dotnet run --project tests/Pane.Clipboard.Tests -c Release -- "$PWD/src/Pane.App/bin/native/Pane.Native.dll"
           if ($LASTEXITCODE -ne 0) { throw 'Clipboard tests failed' }
+      - name: Launcher tests
+        shell: pwsh
+        run: |
+          dotnet run --project tests/Pane.Launcher.Tests -c Release
+          if ($LASTEXITCODE -ne 0) { throw 'Launcher tests failed' }
       - name: Upload installer
         uses: actions/upload-artifact@v4
         with:

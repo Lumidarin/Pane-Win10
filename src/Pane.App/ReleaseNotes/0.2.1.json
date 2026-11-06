@@ -4,6 +4,7 @@
   "items": [
     { "kind": "new", "text": "Windows 10 纯色兼容版：保留启动器、剪贴板、鼠标手势和现有界面布局。" },
     { "kind": "fixed", "text": "Windows 10 不再调用仅限 Windows 11 的窗口背景效果，修复安装窗口无法显示。" },
-    { "kind": "improved", "text": "更新来源切换到 Pane-Win10，避免自动更新回仅支持 Windows 11 的原版。" }
+    { "kind": "improved", "text": "更新来源切换到 Pane-Win10，避免自动更新回仅支持 Windows 11 的原版。" },
+    { "kind": "fixed", "text": "在设置里切换深色 / 浅色主题后，启动器、剪贴板等输入框里的提示文字颜色没跟着变、浅色下发白看不清的问题。" }
   ]
 }
