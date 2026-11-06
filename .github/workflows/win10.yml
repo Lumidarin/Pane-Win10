@@ -1,0 +1,44 @@
+name: Win10 build
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2025
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build installer
+        shell: pwsh
+        run: ./scripts/build-win10.ps1
+      - name: Gesture tests
+        shell: pwsh
+        run: |
+          dotnet run --project tests/Pane.Gestures.Tests -c Release -- --unit-only
+          if ($LASTEXITCODE -ne 0) { throw 'Gesture tests failed' }
+      - name: Clipboard tests
+        shell: pwsh
+        run: |
+          dotnet run --project tests/Pane.Clipboard.Tests -c Release -- "$PWD/src/Pane.App/bin/native/Pane.Native.dll"
+          if ($LASTEXITCODE -ne 0) { throw 'Clipboard tests failed' }
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pane-Win10-0.2.1
+          path: |
+            dist/Pane-Setup-*.exe
+            dist/SHA256SUMS.txt
+            dist/release-notes.md
+          if-no-files-found: error
+      - name: Upload app for Win10 validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pane-Win10-validation
+          path: src/Pane.App/bin/aot/
+          retention-days: 7

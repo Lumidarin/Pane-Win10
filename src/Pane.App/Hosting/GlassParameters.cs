@@ -9,7 +9,8 @@ public sealed class GlassParameters : IDisposable
     readonly Microsoft.UI.Dispatching.DispatcherQueue queue=Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread();
     public GeneralSettings Current {get; private set;}
     public bool Dark => Current.Theme==ThemeMode.Dark || Current.Theme==ThemeMode.System && system.GetColorValue(UIColorType.Foreground).R>128;
-    public bool Solid => !system.AdvancedEffectsEnabled || Environment.GetEnvironmentVariable("PANE_FORCE_SOLID")=="1";
+    // Win10 的桌面窗口不支持 host backdrop；复用现有纯色材质，保留圆角、阴影与动画。
+    public bool Solid => !OperatingSystem.IsWindowsVersionAtLeast(10,0,22000) || !system.AdvancedEffectsEnabled || Environment.GetEnvironmentVariable("PANE_FORCE_SOLID")=="1";
     public GlassThemeParameters Active => Dark?Current.GlassDark:Current.GlassLight;
     public event EventHandler? Changed;
     public static ResourceDictionary Tokens {get;private set;}=null!;

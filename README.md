@@ -1,3 +1,13 @@
+# Pane-Win10
+
+Pane 的 Windows 10 纯色兼容分支，基于 [LBEILC/Pane](https://github.com/LBEILC/Pane)。目标环境为 Windows 10 22H2 x64；Windows 10 使用不透明背景，保留圆角、阴影与动画，Windows 11 保留原材质。
+
+构建：安装 .NET 10 SDK、Visual Studio C++ 构建工具与 Windows SDK 26100，然后运行 `./scripts/build-win10.ps1`。也可使用本仓库的 **Win10 build** GitHub Actions 工作流。验证状态见发布说明。
+
+自动更新仅访问本 fork，不会安装上游的 Win11 专用包。下方功能介绍与图片沿用上游，图片中的玻璃效果不代表 Win10 实际背景。
+
+---
+
 <p align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/banner-dark.png">
@@ -6,14 +16,14 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/LBEILC/Pane/releases/latest"><img src="https://img.shields.io/github/v/release/LBEILC/Pane?style=flat-square&color=5874c9&label=%E6%9C%80%E6%96%B0%E7%89%88" alt="最新版"></a>
+  <a href="https://github.com/Lumidarin/Pane-Win10/releases/latest"><img src="https://img.shields.io/github/v/release/Lumidarin/Pane-Win10?style=flat-square&color=5874c9&label=%E6%9C%80%E6%96%B0%E7%89%88" alt="最新版"></a>
   <img src="https://img.shields.io/badge/Windows%2011-x64-5874c9?style=flat-square" alt="Windows 11 x64">
   <img src="https://img.shields.io/badge/%E7%95%8C%E9%9D%A2-%E7%AE%80%E4%BD%93%20%C2%B7%20%E7%B9%81%E9%AB%94-5874c9?style=flat-square" alt="界面：简体 · 繁體">
   <a href="LICENSE"><img src="https://img.shields.io/badge/%E8%AE%B8%E5%8F%AF%E8%AF%81-GPL--3.0-5874c9?style=flat-square" alt="许可证 GPL-3.0"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/LBEILC/Pane/releases/latest"><b>下载最新版</b></a> ·
+  <a href="https://github.com/Lumidarin/Pane-Win10/releases/latest"><b>下载最新版</b></a> ·
   <a href="#安装">安装说明</a> ·
   <a href="#隐私">隐私</a> ·
   <a href="#从源码构建">从源码构建</a>
@@ -145,7 +155,7 @@
 
 ## 安装
 
-1. 到 [Releases](https://github.com/LBEILC/Pane/releases/latest) 下载最新的 `Pane-Setup-<版本>.exe`。
+1. 到 [Releases](https://github.com/Lumidarin/Pane-Win10/releases/latest) 下载最新的 `Pane-Setup-<版本>.exe`。
 2. 运行。安装包没有代码签名，Windows SmartScreen 可能会拦：点「更多信息」→「仍要运行」。
 3. 默认装到 `%LOCALAPPDATA%\Programs\Pane`，只装给当前用户，不需要管理员权限。设置、剪贴板历史、手势配置在 `%APPDATA%\Pane`。
 

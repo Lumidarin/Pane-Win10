@@ -1,0 +1,9 @@
+{
+  "version": "0.2.1",
+  "date": "2026-11-06",
+  "items": [
+    { "kind": "new", "text": "Windows 10 纯色兼容版：保留启动器、剪贴板、鼠标手势和现有界面布局。" },
+    { "kind": "fixed", "text": "Windows 10 不再调用仅限 Windows 11 的窗口背景效果，修复安装窗口无法显示。" },
+    { "kind": "improved", "text": "更新来源切换到 Pane-Win10，避免自动更新回仅支持 Windows 11 的原版。" }
+  ]
+}

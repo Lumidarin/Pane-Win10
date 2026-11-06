@@ -12,7 +12,7 @@ namespace Pane.Services.Updates;
 
 internal sealed class UpdateService : IUpdateService, IDisposable
 {
-    internal static readonly Uri ProductionSource = new("https://api.github.com/repos/LBEILC/Pane/releases/latest");
+    internal static readonly Uri ProductionSource = new("https://api.github.com/repos/Lumidarin/Pane-Win10/releases/latest");
     readonly HttpClient http;
     readonly Uri source;
     readonly string directory;
